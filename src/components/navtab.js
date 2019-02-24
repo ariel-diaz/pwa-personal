@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Tareas from './tareas';
+import Tareas from './tareas/tareas';
 import Notas from './notas';
-import Gastos from './gastos';
+import Gastos from './gastos/gastos';
 import Home from './home';
 
 

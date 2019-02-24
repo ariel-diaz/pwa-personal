@@ -23,8 +23,6 @@ export default initialGastosValue => {
     }
 
 
-
-
     return{
         list,
         ingreso,
@@ -35,7 +33,7 @@ export default initialGastosValue => {
             actualizarDetail(newList);
         },
         addItem: item => {
-            if(item.titulo == "" || item.costo == "") {
+            if(item.titulo === "" || item.costo === "") {
                 return;
             }
 
