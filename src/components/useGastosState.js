@@ -9,6 +9,7 @@ export default initialGastosValue => {
             :    arr.map(x => +x.costo).reduce( (a,b) => a + b);
 
     };
+
     const initialGasto = calcularGasto(list);
     const [gasto, setGasto] = useState(initialGasto);
     const initialSaldo = (15800 - gasto) || 0;
@@ -22,6 +23,8 @@ export default initialGastosValue => {
     }
 
 
+
+
     return{
         list,
         ingreso,
@@ -32,6 +35,10 @@ export default initialGastosValue => {
             actualizarDetail(newList);
         },
         addItem: item => {
+            if(item.titulo == "" || item.costo == "") {
+                return;
+            }
+
             const newList = [...list, item];
             actualizarDetail(newList);
         },

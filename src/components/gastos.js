@@ -80,10 +80,6 @@ const ItemGasto = ({item, removeItem, id}) => {
 };
 
 
-
-
-
-
 const FormGasto = ({addItem}) => {
     const [titulo, setTitulo] = useState('');
     const [gasto, setGasto] = useState(0);
@@ -160,14 +156,17 @@ const ModalIngreso = ({ingreso, updateIngreso}) => {
 
 }
 
-
-
 const Gastos = () => {
     // const initialIngreso = Number(window.localStorage.getItem('initialIngreso')) || 0;
      const initialList = JSON.parse(window.localStorage.getItem('initialList')) || [];
 
 
     const {list, addItem, removeItem, ingreso, gasto, saldo, updateIngreso } = useGastosState(initialList);
+
+
+    useEffect(() => {
+        localStorage.setItem('initialList', JSON.stringify(list))
+    });
 
     return (
         <div className="container">
