@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import dateFns from 'date-fns';
 import useGastosState from './useGastosState';
+import Modal from 'react-modal';
+
 
 const itemsGastos = [
     {
@@ -78,9 +80,7 @@ const ItemGasto = ({item, removeItem, id}) => {
 };
 
 
-const ButtonAdd  = () => {
-    return <button className="button-add"> + </button>
-}
+
 
 
 
@@ -100,7 +100,6 @@ const FormGasto = ({addItem}) => {
         setTitulo('');
         setGasto('');
     };
-
     const handleTitulo = (e) => {
         setTitulo(e.target.value);
     }
@@ -110,7 +109,7 @@ const FormGasto = ({addItem}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form-gastos" onSubmit={handleSubmit}>
          <label>
           Titulo
           <input type="text" value={titulo} onChange={handleTitulo} />
@@ -125,17 +124,55 @@ const FormGasto = ({addItem}) => {
 }
 
 
+const ModalIngreso = ({ingreso, updateIngreso}) => {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setShowModal(false)
+    };
+
+    const handleChange = (e) => {
+        updateIngreso(e.target.value);
+    }
+
+    return (
+        <>
+          <h3 onClick={() => setShowModal(true)}>
+           <b> Ingreso </b>
+            ${ingreso}
+          </h3>
+          <Modal 
+          isOpen={showModal}
+          contentLabel="Minimal Modal Example">
+
+          <button className="button-cerrar" onClick={() => setShowModal(false)}>Cerrar</button>
+
+          <form onSubmit={handleSubmit}>  
+            <label> Ingreso
+                <input type="text" value={ingreso} onChange={handleChange} />
+            </label>
+            <button type="submit" value="guardar"> Guardar </button>
+          </form>
+         </Modal>
+        </>
+        )
+
+}
+
+
+
 const Gastos = () => {
     // const initialIngreso = Number(window.localStorage.getItem('initialIngreso')) || 0;
      const initialList = JSON.parse(window.localStorage.getItem('initialList')) || [];
 
 
-    const {list, addItem, removeItem, ingreso, gasto, saldo } = useGastosState(initialList);
+    const {list, addItem, removeItem, ingreso, gasto, saldo, updateIngreso } = useGastosState(initialList);
 
     return (
         <div className="container">
             <div className="gastos-detail">
-                <h3> <b> Ingresos </b> ${ingreso} </h3>
+                 <ModalIngreso ingreso={ingreso} updateIngreso={updateIngreso}/>
                 <h3> <b> Gastos </b> ${gasto} </h3>
                 <h3> <b> Saldo </b>  ${saldo} </h3>
             </div>
@@ -148,7 +185,7 @@ const Gastos = () => {
                     }
                 </ul>
             </div>
-            <ButtonAdd />
+            {/* <ButtonAdd /> */}
         </div>
     )
 

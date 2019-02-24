@@ -184,3 +184,15 @@ th {
   bottom: 10px;
   right: 10px;
 }
+
+.form-gastos {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+}
+
+
+.button-cerrar {
+  float:right;
+  
+}

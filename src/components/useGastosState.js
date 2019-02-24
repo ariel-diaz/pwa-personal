@@ -10,7 +10,6 @@ export default initialGastosValue => {
 
     };
     const initialGasto = calcularGasto(list);
-    console.log(`Initial gasto: ${initialGasto}`);
     const [gasto, setGasto] = useState(initialGasto);
     const initialSaldo = (15800 - gasto) || 0;
     const [saldo, setSaldo] = useState(initialSaldo);
@@ -35,6 +34,10 @@ export default initialGastosValue => {
         addItem: item => {
             const newList = [...list, item];
             actualizarDetail(newList);
+        },
+        updateIngreso: ingreso => {
+           setIngreso(ingreso);
+           setSaldo(ingreso - gasto);
         }
     };
 }
