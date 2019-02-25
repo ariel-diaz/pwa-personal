@@ -1,9 +1,11 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 
 export default initialGastosValue => {
-    const [list, setList] = useState(initialGastosValue);
-    const [ingreso, setIngreso] = useState(15800);
+    const initialList = JSON.parse(window.localStorage.getItem('initialList')) || [];
+    const initialIngreso = Number(window.localStorage.getItem('initialIngreso')) || 0;
+    const [list, setList] = useState(initialList);
+    const [ingreso, setIngreso] = useState(initialIngreso);
     const calcularGasto = (arr) => {
          return (arr && arr.length === 0) ? 0
             :    arr.map(x => +x.costo).reduce( (a,b) => a + b);
@@ -12,7 +14,7 @@ export default initialGastosValue => {
 
     const initialGasto = calcularGasto(list);
     const [gasto, setGasto] = useState(initialGasto);
-    const initialSaldo = (15800 - gasto) || 0;
+    const initialSaldo = (ingreso - gasto) || 0;
     const [saldo, setSaldo] = useState(initialSaldo);
 
     const actualizarDetail = (newList) => {
@@ -21,6 +23,11 @@ export default initialGastosValue => {
         setGasto(calcularGasto(newList));
         setSaldo(ingreso - newGasto);
     }
+
+    useEffect(() => {
+        localStorage.setItem('initialIngreso', ingreso);
+        localStorage.setItem('initialList', JSON.stringify(list));
+    });
 
 
     return{

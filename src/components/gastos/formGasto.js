@@ -3,42 +3,49 @@ import React , {useState} from 'react';
 
 
 const FormGasto = ({addItem}) => {
-    const [titulo, setTitulo] = useState('');
-    const [gasto, setGasto] = useState('');
+    const titulo = useInputForm('');
+    const gasto = useInputForm('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const item = {
             "id": 3,
-            "titulo": titulo,
-            "costo": gasto,
+            "titulo": titulo.value,
+            "costo": gasto.value,
             "fecha": new Date()
         }
         addItem(item);
-        setTitulo('');
-        setGasto('');
+        // titulo.setValue('');
+        // gasto.setValue('');
     };
-    const handleTitulo = (e) => {
-        setTitulo(e.target.value);
-    }
-
-    const handleGasto = (e) => {
-        setGasto(e.target.value);
-    }
 
     return (
         <form className="form-gastos" onSubmit={handleSubmit}>
          <label className="form-gastos-label">
           Título:
-          <input placeholder="ingresar titulo" type="text" value={titulo} onChange={handleTitulo} />
+          <input placeholder="ingresar titulo" type="text" {...titulo} />
         </label>
         <label className="form-gastos-label">
           Gasto:
-          <input placeholder="ingresar $" type="text" value={gasto} onChange={handleGasto} />
+          <input placeholder="ingresar $" type="text" {...gasto} />
         </label>
         <input className="form-gastos-input" type="submit" value="Agregar" />
           </form>
     )
 }
+
+const useInputForm = (initialValue) => {
+    const [value, setValue] = useState(initialValue);
+
+   const handleChange = (e) => {
+        setValue(e.target.value);
+    };
+
+    return {
+        value,
+        onChange: handleChange
+    }
+
+};
 
 export default FormGasto;

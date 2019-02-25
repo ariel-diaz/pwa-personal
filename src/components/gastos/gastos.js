@@ -1,53 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import useGastosState from './useGastosState';
-import Modal from 'react-modal';
 import FormGasto from './formGasto';
 import ItemGasto from './itemGasto';
+import DetailGastos from './detailgastos';
 
 
-
-const ModalIngreso = ({ingreso, updateIngreso}) => {
-    const [showModal, setShowModal] = useState(false);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setShowModal(false)
-    };
-
-    const handleChange = (e) => {
-        updateIngreso(e.target.value);
-    }
-
-    return (
-        <>
-          <h3 onClick={() => setShowModal(true)}>
-           <b> Ingreso </b>
-            ${ingreso}
-          </h3>
-          <Modal 
-          isOpen={showModal}
-          contentLabel="Minimal Modal Example">
-
-          <button className="button-cerrar" onClick={() => setShowModal(false)}>Cerrar</button>
-
-          <form onSubmit={handleSubmit}>  
-            <label> Ingreso
-                <input type="text" value={ingreso} onChange={handleChange} />
-            </label>
-            <button type="submit" value="guardar"> Guardar </button>
-          </form>
-         </Modal>
-        </>
-        )
-
-}
 
 const Gastos = () => {
-    // const initialIngreso = Number(window.localStorage.getItem('initialIngreso')) || 0;
-     const initialList = JSON.parse(window.localStorage.getItem('initialList')) || [];
+   
+  
+    //  ingreso, gasto, saldo, updateIngreso
 
-
-    const {list, addItem, removeItem, ingreso, gasto, saldo, updateIngreso } = useGastosState(initialList);
+    const {list, addItem, removeItem } = useGastosState();
 
 
     useEffect(() => {
@@ -56,11 +20,7 @@ const Gastos = () => {
 
     return (
         <div className="container">
-            <div className="gastos-detail">
-                 <ModalIngreso ingreso={ingreso} updateIngreso={updateIngreso}/>
-                <h3> <b> Gastos </b> ${gasto} </h3>
-                <h3> <b> Saldo </b>  ${saldo} </h3>
-            </div>
+            <DetailGastos/>
            <FormGasto addItem={addItem} />
             <div className="gastos-list">
                 <ul>
@@ -75,5 +35,7 @@ const Gastos = () => {
     )
 
 };
+
+
 
 export default Gastos;
