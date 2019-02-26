@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import useGastosState from './useGastosState';
+import React, { useEffect } from 'react'
+import useGastosDetail from './useGastosState';
 import FormGasto from './formGasto';
 import ItemGasto from './itemGasto';
-import DetailGastos from './detailgastos';
-
-
+import DetailGastos from './detailGastos';
 
 const Gastos = () => {
-   
-  
-    //  ingreso, gasto, saldo, updateIngreso
+    const {ingreso, gasto, saldo, updateIngreso ,list, addItem, removeItem } = useGastosDetail();
 
-    const {list, addItem, removeItem } = useGastosState();
-
-
-    useEffect(() => {
-        localStorage.setItem('initialList', JSON.stringify(list))
-    });
+    let props = { ingreso, gasto, saldo, updateIngreso}
 
     return (
         <div className="container">
-            <DetailGastos/>
+           <DetailGastos {...props}/>
            <FormGasto addItem={addItem} />
             <div className="gastos-list">
                 <ul>
@@ -30,7 +21,6 @@ const Gastos = () => {
                     }
                 </ul>
             </div>
-            {/* <ButtonAdd /> */}
         </div>
     )
 
