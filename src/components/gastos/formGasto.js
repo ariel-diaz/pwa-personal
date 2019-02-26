@@ -1,10 +1,11 @@
 
-import React , {useState} from 'react';
+import React  from 'react';
+import useInput from '../shared/useInput';
 
 
 const FormGasto = ({addItem}) => {
-    const titulo = useInputForm('');
-    const gasto = useInputForm('');
+    const titulo = useInput('');
+    const gasto = useInput('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,24 +38,5 @@ const FormGasto = ({addItem}) => {
           </form>
     )
 }
-
-const useInputForm = (initialValue) => {
-    const [value, setValue] = useState(initialValue);
-
-   const handleChange = (e) => {
-        setValue(e.target.value);
-    };
-
-    const clear = () => {
-        setValue('');
-    }
-    
-    return {
-        value,
-        onChange: handleChange,
-        clear
-    }
-
-};
 
 export default FormGasto;

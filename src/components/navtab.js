@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Tareas from './tareas/tareas';
-import Notas from './notas';
+import Notas from './notas/notas';
 import Gastos from './gastos/gastos';
 import Home from './home';
 

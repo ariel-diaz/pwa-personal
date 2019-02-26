@@ -253,3 +253,65 @@ th {
   font-weight: 500;
 
 }
+
+
+.item-nota {
+   display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1rem;
+    align-items: center;
+}
+
+.item-checkbox {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.item-div {
+  display:flex;
+  justify-content: space-between;
+  flex-grow:2;
+}
+
+.strike-nota {
+  font-weight: 600;
+}
+
+.form-notas {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-notas > label {
+  display:flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+
+
+.form-notas > button {
+  border:none;
+  flex-grow: 1;
+}
+
+.color-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.color-label-box {
+  display:flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+.color-submit-box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  flex-grow: 2;
+  align-items: center;
+}
+
