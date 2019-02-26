@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import DetailGastos from './gastos/detailGastos';
 import useGastosDetail from './gastos/useGastosState';
 
