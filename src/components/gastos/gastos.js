@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import useGastosDetail from './useGastosState';
 import FormGasto from './formGasto';
 import ItemGasto from './itemGasto';
-import DetailGastos from './detailGastos';
+import DetailGastos from './detalleGasto';
 
 const Gastos = () => {
     const {ingreso, gasto, saldo, updateIngreso ,list, addItem, removeItem } = useGastosDetail();
