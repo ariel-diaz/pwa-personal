@@ -1,7 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
 
-const ItemGasto = ({item, removeItem, id}) => {
+const ItemGasto = ({ item, removeItem, id }) => {
     return <li className="item-gasto">
         <div className="item-gasto-detail">
             <span> {item.titulo}</span>

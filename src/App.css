@@ -402,15 +402,14 @@ input:focus {
 
 
 .accordion-tab {
-  display:flex;
+  display: flex;
   justify-content: flex-end;
-  background-color: #2196f3;
+  background-color: #62605e;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 10px 20px;
   text-align: center;
-  border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 10px;

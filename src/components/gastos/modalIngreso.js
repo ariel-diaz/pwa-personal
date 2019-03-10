@@ -23,8 +23,9 @@ const ModalIngreso = ({ingreso, updateIngreso}) => {
           isOpen={showModal}
           contentLabel="Minimal Modal Example">
           <form onSubmit={handleSubmit} className="modal-form">  
-            <label> <h3> Ingreso </h3>
-                <input type="text" value={ingreso} onChange={handleChange} />
+            <label>
+                <h3> Ingreso </h3>
+                <input type="number" value={ingreso} onChange={handleChange} />
             </label>
             <button type="submit" value="guardar"> Guardar </button>
           </form>
