@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import FormNota from './formNota';
 import NotaItem from './itemNota';
 import Accordion from '../shared/accordion';
+import NotElement from './../shared/notElements';
 
 
 const Notas = () => {
@@ -29,17 +30,22 @@ const Notas = () => {
         localStorage.setItem('initialNotas', JSON.stringify(notas));
     }, [notas]);
 
+
+    const notasList = notas.map((nota, i) => 
+                        <NotaItem
+                        removeNota={() => removeNota(i)}
+                        handleChangeEstado={() => handleChangeEstado(i)}
+                        nota={nota}
+                        key={i} />);
+
     return (
         <div className="container">
             <Accordion>
               <FormNota addNotas={addNotas} />
             </Accordion>
+            <hr />
             <ul>
-                {notas.map((nota, i) => <NotaItem
-                    removeNota={() => removeNota(i)}
-                    handleChangeEstado={() => handleChangeEstado(i)}
-                    nota={nota}
-                    key={i} />)}
+                {notas.length > 0 ? notasList : <NotElement/>}
             </ul>
         </div>
     )

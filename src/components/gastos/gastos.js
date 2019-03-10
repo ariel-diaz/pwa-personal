@@ -4,6 +4,7 @@ import FormGasto from './formGasto';
 import ItemGasto from './itemGasto';
 import DetailGastos from './detalleGasto';
 import Accordion from '../shared/accordion';
+import NotElement from '../shared/notElements';
 
 const Gastos = () => {
     const {ingreso, gasto, saldo, updateIngreso ,list, addItem, removeItem } = useGastosDetail();
@@ -17,11 +18,12 @@ const Gastos = () => {
            <Accordion>
                <FormGasto addItem={addItem} />
            </Accordion>
+           <hr />
             <div className="gastos-list">
                 <ul>
                     {list.length > 0
                         ? list.map((item, i) => <ItemGasto removeItem={removeItem} item={item} id={i} key={i} />)
-                        : <h3> No hay gastos </h3>
+                        : <NotElement/>
                     }
                 </ul>
             </div>

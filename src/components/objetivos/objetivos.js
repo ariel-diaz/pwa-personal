@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Objetivo from './objetivo';
 import FormObjetivo from './formObjetivo';
 import Accordion from '../shared/accordion';
-
+import NotElement from '../shared/notElements';
 
 const Objetivos = () => {
     const initialObjetivos = JSON.parse(localStorage.getItem('initialObjetivos')) || [];
@@ -41,9 +41,10 @@ const Objetivos = () => {
             </Accordion>
             <hr />
             <ul>
-                {objetivos.map((x, i) =>
-                    <Objetivo key={i} item={x} id={i} handleChange={checkboxHandleChange} deleteItem={() => deleteItem(i)} />
-                )}
+                {objetivos.length > 0 ?
+                objetivos.map((x, i) =>
+                <Objetivo key={i} item={x} id={i} handleChange={checkboxHandleChange} deleteItem={() => deleteItem(i)} />
+            ) : <NotElement />}
             </ul>
         </div>
     )
