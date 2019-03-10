@@ -4,7 +4,7 @@ import useInput from './../shared/useInput';
 
 
 const Objetivos = () => {
-    const initialObjetivos = JSON.parse(localStorage.getItem('initialObjetivos'));
+    const initialObjetivos = JSON.parse(localStorage.getItem('initialObjetivos')) || [];
     const [objetivos, setObjetivos] = useState(initialObjetivos);
 
     const addItem = (title, items) => {
