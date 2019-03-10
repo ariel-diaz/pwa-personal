@@ -94,6 +94,13 @@ input:focus {
 }
 
 
+
+
+
+
+
+
+
 .nav-list {
   display:flex;
   flex-direction: row;
@@ -118,8 +125,6 @@ input:focus {
   text-decoration: none;
 }
 
-.container {
-}
 
 .container.home {
   display: flex;
@@ -296,7 +301,8 @@ input:focus {
 .item-div {
   display:flex;
   justify-content: space-between;
-  flex-grow:2;
+  align-items: center;
+  flex-grow:1;
 }
 
 .strike-nota {
@@ -354,8 +360,30 @@ input:focus {
   padding: 10px;
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+}
+
+.div-checks {
+  display:flex;
+  flex-direction: column;
+  flex-grow: 4;
+  align-items: flex-start;
+}
+
+.div-percent {
+  display:flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.btnDeleteObjetivo {
+  padding: 5px 10px;
+  background-color: #AB2331;
+  color:#fff;
+  border-radius: 5px;
+  font-weight: 600;
 }
 
 
@@ -364,4 +392,9 @@ input:focus {
   width: 2em;
   height: 2em;
   margin-left: 0.5em;
+}
+
+
+.active {
+  border-bottom: 2px solid #fff;
 }

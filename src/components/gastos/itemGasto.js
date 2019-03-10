@@ -11,8 +11,7 @@ const ItemGasto = ({item, removeItem, id}) => {
             <h1> <b> ${item.costo} </b> </h1>
         </div>
         <div className="item-gasto-action">
-            <span> edit </span>
-            <span onClick={() => removeItem(id)}> X </span>
+            <span className="btnDeleteObjetivo" onClick={() => removeItem(id)}> X </span>
         </div>
     </li>
 };

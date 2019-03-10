@@ -9,8 +9,6 @@ const useInput = (initialValue) => {
     };
 
     const clear = (value) => {
-        debugger;
-        console.log(value);
         setValue(value);
     }
     

@@ -11,7 +11,7 @@ const NotaItem = ({ nota, removeNota, handleChangeEstado }) => {
             <div className="item-div">
                    <input type="checkbox" className="item-checkbox"
                     checked={nota.estado} onChange={handleChangeEstado} />
-                   <span onClick={removeNota} > X </span>
+                   <span className="btnDeleteObjetivo" onClick={removeNota} > <b> X  </b> </span>
             </div>
 
 
