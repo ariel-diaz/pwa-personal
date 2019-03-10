@@ -23,9 +23,9 @@ const NavTab = () => {
             </nav>
 
             <Route exact path="/" component={Home}/>
-            <Route  path="/objetivos" component={Objetivos}/>
             <Route  path="/notas" component={Notas}/>
             <Route  path="/gastos" component={Gastos}/>
+            <Route  path="/objetivos" component={Objetivos}/>
 
             </div>
         </ Router >

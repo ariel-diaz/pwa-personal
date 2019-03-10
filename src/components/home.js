@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import useGastosDetail from './gastos/useGastosState';
 import RecordatoriosPendientes from './notas/pendientes';
 
-
 const useObjetivos = () => {
     const initialObjetivos = JSON.parse(localStorage.getItem('initialObjetivos')) || [];
     const [objetivos] = useState(initialObjetivos);
