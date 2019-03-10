@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useGastosDetail from './useGastosState';
 import FormGasto from './formGasto';
 import ItemGasto from './itemGasto';

@@ -15,13 +15,9 @@ const FormGasto = ({addItem}) => {
             "costo": gasto.value,
             "fecha": new Date()
         }
-
-        if(item.titulo === "" || item.costo === "") {
-            return;
-        }
         addItem(item);
-        titulo.clear();
-        gasto.clear();
+        titulo.clear('');
+        gasto.clear(0);
     };
 
     return (
@@ -32,10 +28,10 @@ const FormGasto = ({addItem}) => {
         </label>
         <label className="form-gastos-label">
           Gasto:
-          <input placeholder="ingresar $" type="number" {...gasto} />
+          <input placeholder="ingresar $" type="number" {...gasto} min="1"  />
         </label>
-        <input className="form-gastos-input" type="submit" value="Agregar" />
-          </form>
+        <input className="form-gastos-input" type="submit" value="Agregar" disabled={titulo.value.length < 1 || gasto.value < 1} />
+         </form>
     )
 }
 

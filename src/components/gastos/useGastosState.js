@@ -29,7 +29,6 @@ const useGastosDetail = () => {
 
 
     useEffect(() => {
-        console.log('Actualizo la lista')
         actualizarDetail(list);
         localStorage.setItem('initialIngreso', ingreso);
         localStorage.setItem('initialList', JSON.stringify(list));

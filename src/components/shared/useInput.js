@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 
 const useInput = (initialValue) => {
@@ -8,8 +8,8 @@ const useInput = (initialValue) => {
         setValue(e.target.value);
     };
 
-    const clear = () => {
-        setValue('');
+    const clear = (value) => {
+        setValue(value);
     }
     
     return {

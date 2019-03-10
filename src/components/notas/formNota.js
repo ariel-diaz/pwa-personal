@@ -86,7 +86,7 @@ const FormNota = ({ addNotas }) => {
             </label>
             </div>
             <div className="color-submit-box">
-            <button type="submit">  + </button>
+            <button className="form-gastos-input" type="submit">Agregar</button>
             <div className="color-div">
                 <div style={styles.swatch} onClick={handleClick}>
                     <div style={styles.color} />
