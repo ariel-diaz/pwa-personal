@@ -1,6 +1,7 @@
 import React from 'react'
-import DetailGastos from './gastos/detailGastos';
 import useGastosDetail from './gastos/useGastosState';
+import DetailGastos from './gastos/detalleGasto';
+import RecordatoriosPendientes from './notas/pendientes';
 
 const Home = () => {
     const {ingreso, gasto, saldo, updateIngreso} = useGastosDetail();
@@ -9,6 +10,10 @@ const Home = () => {
     return (
         <div className="container">
            <DetailGastos {...props}  />
+
+           <hr />
+
+           <RecordatoriosPendientes />
         </div>
     )
 }
