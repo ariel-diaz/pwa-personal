@@ -3,6 +3,7 @@ import useGastosDetail from './useGastosState';
 import FormGasto from './formGasto';
 import ItemGasto from './itemGasto';
 import DetailGastos from './detalleGasto';
+import Accordion from '../shared/accordion';
 
 const Gastos = () => {
     const {ingreso, gasto, saldo, updateIngreso ,list, addItem, removeItem } = useGastosDetail();
@@ -12,7 +13,10 @@ const Gastos = () => {
     return (
         <div className="container">
            <DetailGastos {...props}/>
-           <FormGasto addItem={addItem} />
+           
+           <Accordion>
+               <FormGasto addItem={addItem} />
+           </Accordion>
             <div className="gastos-list">
                 <ul>
                     {list.length > 0

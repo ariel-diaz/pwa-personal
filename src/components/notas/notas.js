@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import FormNota from './formNota';
 import NotaItem from './itemNota';
+import Accordion from '../shared/accordion';
 
 
 const Notas = () => {
@@ -30,7 +31,9 @@ const Notas = () => {
 
     return (
         <div className="container">
-            <FormNota addNotas={addNotas} />
+            <Accordion>
+              <FormNota addNotas={addNotas} />
+            </Accordion>
             <ul>
                 {notas.map((nota, i) => <NotaItem
                     removeNota={() => removeNota(i)}

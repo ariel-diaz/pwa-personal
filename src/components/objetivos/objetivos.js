@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Objetivo from './objetivo';
 import FormObjetivo from './formObjetivo';
+import Accordion from '../shared/accordion';
 
 
 const Objetivos = () => {
@@ -35,7 +36,9 @@ const Objetivos = () => {
 
     return (
         <div className="container">
-            <FormObjetivo addItem={addItem} />
+            <Accordion>
+             <FormObjetivo addItem={addItem} />
+            </Accordion>
             <hr />
             <ul>
                 {objetivos.map((x, i) =>
