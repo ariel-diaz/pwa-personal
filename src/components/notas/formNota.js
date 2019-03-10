@@ -29,6 +29,7 @@ const FormNota = ({ addNotas }) => {
         }
         
         addNotas(obj);
+        titulo.clear('')
     }
 
     const handleClick = () => {

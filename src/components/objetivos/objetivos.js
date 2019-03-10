@@ -14,6 +14,7 @@ const Objetivos = () => {
         }
         const newObjetivos = [...objetivos, item]
         setObjetivos(newObjetivos);
+        console.log(title,items);
     }
 
     const deleteItem = (id) => {
@@ -75,8 +76,9 @@ const FormObjetivo = ({ addItem }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addItem(title.value, items.value);
-        title.clear(String.empty);
+        title.clear('');
         items.clear(0);
+        
     }
 
 

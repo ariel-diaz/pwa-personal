@@ -32,7 +32,7 @@ const useGastosDetail = () => {
         actualizarDetail(list);
         localStorage.setItem('initialIngreso', ingreso);
         localStorage.setItem('initialList', JSON.stringify(list));
-    },[list]);
+    },[list, ingreso]);
 
 
     return {

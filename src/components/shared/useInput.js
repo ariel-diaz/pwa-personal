@@ -9,13 +9,15 @@ const useInput = (initialValue) => {
     };
 
     const clear = (value) => {
+        debugger;
+        console.log(value);
         setValue(value);
     }
     
     return {
         value,
         onChange: handleChange,
-        clear
+        clear: clear
     }
 
 };
