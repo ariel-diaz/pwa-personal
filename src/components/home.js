@@ -12,7 +12,9 @@ const useObjetivos = () => {
         return (item.items.filter(x => x === true).length / item.items.length) * 100
     }
     const arrayPorcentajes = objetivos.map(item => porcentaje(item))
-    const porcentajeObjetivos = (arrayPorcentajes.reduce((a, b) => a + b) / cantidadObjetivos).toFixed(2);
+    const porcentajeObjetivos = arrayPorcentajes.length > 0 ?
+                  (arrayPorcentajes.reduce((a, b) => a + b) / cantidadObjetivos).toFixed(2) 
+                  : 0.00;
 
     return {
         cantidadObjetivos,
