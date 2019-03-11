@@ -9,7 +9,7 @@ const RecordatoriosPendientes = () => {
     return (
         <div className="box-recordatorios">
             <h3> <b> Recordatorios </b> </h3>
-            <span> {cantidadPendientes.length} </span>
+            <span> {cantidadPendientes.length} / {recordatorios.length} </span>
         </div>
     )
 }

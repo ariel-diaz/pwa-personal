@@ -1,12 +1,13 @@
 import React from 'react'
-import  dateFns  from 'date-fns';
+import  {format}  from 'date-fns';
+import es from 'date-fns/locale/es';
 
 const NotaItem = ({ nota, removeNota, handleChangeEstado }) => {
     return (
         <li className="item-nota" style={{ 'backgroundColor': nota.color, 'padding': 10, 'color': '#fff' }}>
             <div style={{ 'display': 'flex', 'flexDirection': 'column', 'flexGrow': 3 }}>
                 <span> {nota.estado ? <strike className="strike-nota"> {nota.titulo} </strike> : nota.titulo}  </span>
-                <span> {dateFns.format(new Date(nota.fecha), 'DD MMMM')} </span>
+                <span> {format(new Date(nota.fecha), 'DD MMMM', {locale: es})} </span>
             </div>
             <div className="item-div">
                    <input type="checkbox" className="item-checkbox"

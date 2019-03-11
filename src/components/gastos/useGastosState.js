@@ -71,7 +71,7 @@ const useGastosDetail = () => {
         actualizarDetail(list);
         localStorage.setItem('initialIngreso', ingreso);
         localStorage.setItem('initialData', JSON.stringify(fullList));
-    },[fullList, list, ingreso]);
+    },[fullList, ingreso]);
 
 
     return {
@@ -80,8 +80,15 @@ const useGastosDetail = () => {
         gasto,
         saldo,
         removeItem: itemIndex => {
-            const newList = list.filter( (_, index) => index !== itemIndex);
-            setList(newList);
+            let indexArr = fullList.findIndex(x => x.month === dateActual.month && x.year === dateActual.year);
+            const newFullList = fullList.slice();
+            console.log(newFullList);
+
+            const newItems = newFullList[indexArr].items.filter( (_, index) => index !== itemIndex);
+            newFullList[indexArr].items = newItems;
+
+             setList(newItems);
+            setFullList(newFullList)
         },
         addItem: item => {
             let newArray = fullList.slice();
@@ -94,14 +101,12 @@ const useGastosDetail = () => {
                     items: [item]
                 }
                 newArray = [...newArray, newItem];
-                indexArr = fullList.findIndex(x => x.month === dateActual.month && x.year === dateActual.year);
+                indexArr = newArray.findIndex(x => x.month === dateActual.month && x.year === dateActual.year);
             } else {
                 newArray[indexArr].items.push(item);
             }
 
             setFullList(newArray);
-            console.log("NUEVA LISTA")
-            console.log(newArray[indexArr].items)
             setList(newArray[indexArr].items)
         },
         updateIngreso: ingreso => {

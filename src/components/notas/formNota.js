@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 import useInput from './../shared/useInput';
-import dateFns  from 'date-fns';
+import {format}  from 'date-fns';
 import reactCSS from 'reactcss'
 import { GithubPicker  } from 'react-color'
 
@@ -9,7 +9,7 @@ import { GithubPicker  } from 'react-color'
 const FormNota = ({ addNotas }) => {
 
     const titulo = useInput('');
-    const date = useInput(dateFns.format(new Date(), 'YYYY-MM-DD'));
+    const date = useInput(format(new Date(), 'YYYY-MM-DD'));
     const [displayColorPicker, setDisplayColor] = useState(false);
     const [color, setColor] = useState('#19204D');
     // const [fecha, setFecha] = useState(dateFns.format(new Date(), 'YYYY-MM-DD'));

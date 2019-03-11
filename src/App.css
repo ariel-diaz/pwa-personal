@@ -427,3 +427,14 @@ input:focus {
   padding: 20px;
   margin-top: 20px;
 }
+
+.fechaGastos {
+  display:flex;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.fechaGastos > span {
+  margin-left: 10px;
+}
